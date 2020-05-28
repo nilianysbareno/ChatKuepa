@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keupa Class</title>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--MY CSS-->
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <h1>CODIGO</h1>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand mx-auto" href="/">
+          <img src="./img/logoKuepa.png" class="logo" alt="">
+        </a>
+      </nav>
+
+      <div class="container">
+        <div class="col-md-6 mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <g4>Chat para la clase</g4>
+                </div>
+                <div id= "chat" class="card-body"></div>
+                <form id ="message-form" class="card-footer">
+                    <div class="input group">
+                      <input type="text" id="message" class="form-control">
+                        <div class="input-group-append mx-auto">
+                            <input type="submit" class="btn">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+      </div>
 
     <script src="/socket.io/socket.io.js" charset="UTF-8"></script>
     <script src="/js/main.js" charset="UTF-8"></script>
