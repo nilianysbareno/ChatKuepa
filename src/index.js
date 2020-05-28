@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio.listen(server);
 
-
+require('./sockets')(io);
 
 //star files
 app.use(express.static(path.join(__dirname,'public')));
