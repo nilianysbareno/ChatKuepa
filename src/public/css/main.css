@@ -13,3 +13,13 @@ body {
     background: #fc4a1a;  
     color: white ;
 }
+#contentWrap { 
+    display: none;
+}
+
+#chat {
+    height: 200px;
+    max-height: 200px;
+    overflow-y: scroll
+
+}

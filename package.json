@@ -1,10 +1,10 @@
 {
   "name": "Kuepa",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.9.16",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/nilianysbareno/ChatKuepa/issues"
   },
-  "homepage": "https://github.com/nilianysbareno/ChatKuepa#readme"
+  "homepage": "https://github.com/nilianysbareno/ChatKuepa#readme",
+  "description": ""
 }
