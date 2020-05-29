@@ -39,7 +39,7 @@ $(function (){
     });
 
     socket.on('new message', data =>{
-        $chat.append('<b>' + data.nick +'</b>: ' +data.msg + '<br/>' ); 
+        displayMsg(data);
     });
 
     socket.on ('usernames', data => { 
@@ -49,4 +49,17 @@ $(function (){
         }
         $users.html(html);
     });
+
+    socket.on('load old msgs', data => {
+        console.log(data);
+        for (let i = 0; i < data.length; i++){
+            displayMsg(data[i]);
+        }
+    });
+
+    function displayMsg(data) {
+        $chat.append(`<p class="msg"><b>${data.nick}</b>: ${data.msg}</p>`);
+      }
+
+    
 })
