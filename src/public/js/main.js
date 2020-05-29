@@ -58,7 +58,7 @@ $(function (){
         } else {
             $emailError.html(`
              <div class="alert alert-danger">
-             Ese usuario ya existe 
+             Ese correo ya existe
              </div>
          `);
         }

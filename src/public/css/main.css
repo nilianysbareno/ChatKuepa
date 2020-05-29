@@ -2,7 +2,6 @@ body {
     background: #fc4a1a;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 .logo {
@@ -21,8 +20,23 @@ body {
     height: 200px;
     max-height: 200px;
     overflow-y: scroll
-
 }
+
 .moderator {
     color: red;
+}
+
+.card-body-user {
+    height: 100px;
+    max-height: 100px;
+    overflow-y: scroll
+}
+
+#usernames{
+    margin-left: 10px;
+}
+
+.embed-responsive embed-responsive-16by9 {
+
+    height: 100%;
 }

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const ChatSchema = new Schema({
   nickname: String,
   userType: String,
-  msg: String,
+  text: String,
   created_at: { type: Date, default: Date.now }
 });
 

@@ -12,8 +12,6 @@ module.exports = function (io){
 
 
         socket.on('new user', async data => {
-            
-            
             console.log(data);
             var newUser = new User ({
                 nickname: data.nickname,
