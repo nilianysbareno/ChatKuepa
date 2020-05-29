@@ -23,3 +23,6 @@ body {
     overflow-y: scroll
 
 }
+.moderator {
+    color: red;
+}

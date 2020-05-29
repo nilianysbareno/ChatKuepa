@@ -12,60 +12,84 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-
+  <div class="container-lg">
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand mx-auto" href="/">
-          <img src="./img/logoKuepa.png" class="logo" alt="">
-        </a>
-      </nav>
-      <div class="card col-md-4 mt-5 mx-auto" id="nickWrap"> 
-        <div class="card-header">
-          <h3>Nombre del usuario:</h3>
-        </div>
-        <p id="nickError"></p>
-        <div class="card-body">
-          <form id="nickForm" autocomplete="off">
-            <input type="text" id="nickname" class="form-control">
-            <button type="submit" class="btn mt-2">
-              <i class="fas fa-location-arrow"></i> Enviar
-            </button>
-          </form>
-        </div>
+      <a class="navbar-brand mx-auto" href="/">
+        <img src="./img/logoKuepa.png" class="logo" alt="">
+      </a>
+    </nav>
+  </div>
+  
+  <div class="container-lg"><div class="card col-md-4 mt-5 mx-auto" id="nickWrap"> 
+    <div class="card-header">
+      <h3>Ingreso usuario:</h3>
+    </div>
+    <form id="form" autocomplete="off" class="card-body">
+      <h5>Nombre usuario:</h5>
+      <div id="nickForm" >
+        <input type="text" id="nickname" class="form-control" required>
       </div>
+      <p id="emailError"></p>
+      <h5>Correo:</h5>
+      <div id="emailForm">
+        <input type="email"  id="email" class="form-control" required >
+      </div>
+      <h5>Contraseña:</h5>
+      <div id="passwordForm">
+        <input type="password" class="form-control" id="password" required>
+      </div>
+      <h5>Tipo de usuario:</h5>
+      <div id="typeForm" autocomplete="off">
+        <select class="form-control" id="userType" required>
+          <option disabled selected value="" >Seleccione usuario</option>
+          <option value="Estudiante">Estudiante</option>
+          <option value="Moderador">Moderador</option>
+        </select>
+      </div>
+      <button type="submit" class="btn mt-2">
+        <i class="fas fa-location-arrow"></i> Enviar
+      </button>
+    </form>
+  </div>
+</div>
       
       
-      <div class="container" id="contentWrap">
-        <div class="row mt-2">
-          <div class="col-md-6 offset-md-1">
-            <div class="card">
-                <div class="card-header">
-                    <g4>Chat para la clase</g4>
-                </div>
-                <div id= "chat" class="card-body"></div>
-                  <form id ="message-form" class="card-footer" autocomplete="off">
-                    <div class="input group">
-                      <input type="text" id="message" class="form-control">
-                        <div class="input-group-append mx-auto">
-                            <button type="submit" class="btn">
-                              <i class="fas fa-location-arrow"></i> Enviar
-                            </button>
-                        </div>
-                    </div>
-                 </form>
-                </div> 
-           </div>
-           <div class="col-md-3">
-            <div class="card">
-              <div class="card-header">
-                  <h3>Usuarios</h3>
-              </div>
-              <div class="card-body">
-                <div id="usernames"></div>
-              </div>
+<div class="container-lg">
+  <div class="container" id="contentWrap">
+    <div class="row mt-2">
+      <div class="col-md-6 offset-md-1">
+        <div class="card">
+            <div class="card-header">
+                <g4>Chat para la clase</g4>
             </div>
-           </div>
+            <div id= "chat" class="card-body"></div>
+              <form id ="message-form" class="card-footer" autocomplete="off">
+                <div class="input group">
+                  <input type="text" id="message" class="form-control">
+                    <div class="input-group-append mx-auto">
+                        <button type="submit" class="btn">
+                          <i class="fas fa-location-arrow"></i> Enviar
+                        </button>
+                    </div>
+                </div>
+             </form>
+            </div> 
+       </div>
+       
+       <div class="col-md-3">
+        <div class="card">
+          <div class="card-header">
+              <h3>Usuarios</h3>
+          </div>
+          <div class="card-body">
+            <div id="usernames"></div>
+          </div>
         </div>
-      </div>
+       </div>
+    </div>
+  </div>
+</div>
+      
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" 

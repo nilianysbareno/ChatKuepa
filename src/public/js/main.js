@@ -8,33 +8,42 @@ $(function (){
     const $chat = $('#chat');
 
     //obtaining DOM elements from the login
-    const $nickForm = $('#nickForm');
-    const $nickError = $('#nickError');
+    const $form = $('#form');
     const $nickname = $('#nickname');
+    const $email = $('#email');
+    const $password = $('#password');
+    const $userType = $('#userType');
+
 
     const $users = $('#usernames');
 
-    $nickForm.submit(e => {
-        e.preventDefault();
-        socket.emit('new user', $nickname.val(), data => {
-            if(data){
-                $('#nickWrap').hide();
-                $('#contentWrap').show();
-            } else {
-                $nickError.html(`
-                 <div class="alert alert-danger">
-                 Ese usuario ya existe 
-                 </div>
-             `);
-            }
-            $nickname.val('');
-        });
-    });
+    let userLogged = {};
 
     //events
+    $form.submit(e => {
+        e.preventDefault();
+
+        userLogged = {
+            nickname: $nickname.val(),
+            email: $email.val(),
+            password: $password.val(),
+            userType: $userType.val()
+
+        }
+
+        socket.emit('new user', userLogged);
+    });
+
     $messageFrom.submit( e => {
         e.preventDefault ();
-        socket.emit('send message', $messageBox.val());
+
+        let msg = {
+            text: $messageBox.val(),
+            nickname: userLogged.nickname,
+            userType: userLogged.userType
+        }
+
+        socket.emit('send message',msg );
         $messageBox.val('');
     });
 
@@ -43,22 +52,42 @@ $(function (){
     });
 
     socket.on ('usernames', data => { 
+        if(data){ 
+            $('#nickWrap').hide();
+            $('#contentWrap').show();
+        } else {
+            $emailError.html(`
+             <div class="alert alert-danger">
+             Ese usuario ya existe 
+             </div>
+         `);
+        }
+        $nickname.val('');
         let html = '';
         for (let i = 0; i < data.length; i++) {
-            html += `<p><i class="far fa-user"></i> ${data[i]}</p>`
+            console.log(data[i].userType);
+            if (data[i].userType === 'Moderador') {
+                html += `<p class="moderator"><i class="far fa-user"></i> ${data[i].nickname}</p>`
+            } else {
+                html += `<p><i class="far fa-user"></i> ${data[i].nickname}</p>`
+            }
+            
         }
         $users.html(html);
     });
 
     socket.on('load old msgs', data => {
-        console.log(data);
         for (let i = 0; i < data.length; i++){
             displayMsg(data[i]);
         }
     });
 
     function displayMsg(data) {
-        $chat.append(`<p class="msg"><b>${data.nick}</b>: ${data.msg}</p>`);
+        if (data.userType === 'Moderador') {
+        $chat.append(`<p class="msg moderator"><b>${data.nickname}</b>: ${data.text}</p>`);
+        }else {
+            $chat.append(`<p class="msg"><b>${data.nickname}</b>: ${data.text}</p>`);
+        }
       }
 
     

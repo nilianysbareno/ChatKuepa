@@ -10,15 +10,16 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio.listen(server);
 
-//de connection
+//db connection
 mongoose.connect('mongodb://localhost/chat-database')
     .then(db => console.log('db is connected'))
     .catch(err => console.log(err));
-
+    
 //settings
 app.set('port', process.env.PORT || 8080);
 
 require('./sockets')(io);
+mongoose.Promise = global.Promise;
 
 //star files
 app.use(express.static(path.join(__dirname,'public')));
