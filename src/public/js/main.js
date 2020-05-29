@@ -13,6 +13,7 @@ $(function (){
     const $email = $('#email');
     const $password = $('#password');
     const $userType = $('#userType');
+    const $emailError = $('#emailError')
 
 
     const $users = $('#usernames');
