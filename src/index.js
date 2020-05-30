@@ -11,10 +11,11 @@ const server = http.createServer(app);
 const io = socketio.listen(server);
 
 //db connection
-mongoose.connect('mongodb://localhost/chat-database')
-    .then(db => console.log('db is connected'))
-    .catch(err => console.log(err));
-    
+mongoose
+  .connect('mongodb://database/chat-database')
+  .then((db) => console.log('db is connected'))
+  .catch((err) => console.log(err));
+
 //settings
 app.set('port', process.env.PORT || 8080);
 
@@ -22,10 +23,9 @@ require('./sockets')(io);
 mongoose.Promise = global.Promise;
 
 //star files
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-//start server 
+//start server
 server.listen(8080, () => {
-    console.log('server on port', app.get('port'));
+  console.log('server on port', app.get('port'));
 });

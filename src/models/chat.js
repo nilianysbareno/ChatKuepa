@@ -5,7 +5,7 @@ const ChatSchema = new Schema({
   nickname: String,
   userType: String,
   text: String,
-  created_at: { type: Date, default: Date.now }
+  created_at: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model('Chat', ChatSchema);
